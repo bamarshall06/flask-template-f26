@@ -38,7 +38,7 @@ Work is planned in `prd.md` and tracked as GitHub issues. Follow it:
    requested change has no issue, suggest creating one
    (`gh issue create`) before writing code.
 2. **One branch per issue.** `git checkout -b feature-<short-name>` — or a
-   worktree (`git worktree add ../<repo>-<short-name> feature-<short-name>`)
+   worktree (`git worktree add -b feature-<short-name> ../<repo>-<short-name>`)
    when the student wants two sessions open at once. Never commit feature work
    straight to `main`.
 3. **Merge back to `main`** when it works locally.
