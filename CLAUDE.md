@@ -12,6 +12,43 @@ what was asked, do not introduce a pattern the project is not already using,
 and do not do in three files what the project does in one. A student cannot
 walk through code they have never seen the shape of.
 
+## This project (from prd.md)
+
+The student fills this section in from `prd.md` (Module 5 onward). If it still
+says _TODO_, ask them what the project is rather than guessing, and point them
+at `prd.md`. When `prd.md` and this section disagree, ask which one is right —
+do not silently pick one.
+
+- **What it is:** _TODO: one or two sentences from the PRD's Project Overview._
+- **Who it is for:** _TODO: from Target Users._
+- **Key features:** _TODO: the PRD's Key Features, one line each._
+- **Tables:** _TODO: each table and what it relates to._
+- **External APIs:** _TODO: each API and the environment variable holding its
+  key — never the key itself._
+- **Rules for this project:** _TODO: at least three conventions specific to
+  this app, e.g. "every page that changes data requires login"._
+- **Do not:** _TODO: at least two things Claude must not do here, e.g. "do not
+  add a new table without asking"._
+
+## Workflow
+
+Work is planned in `prd.md` and tracked as GitHub issues. Follow it:
+
+1. **Start from an issue.** `gh issue list` shows what is open. If the
+   requested change has no issue, suggest creating one
+   (`gh issue create`) before writing code.
+2. **One branch per issue.** `git checkout -b feature-<short-name>` — or a
+   worktree (`git worktree add ../<repo>-<short-name> feature-<short-name>`)
+   when the student wants two sessions open at once. Never commit feature work
+   straight to `main`.
+3. **Merge back to `main`** when it works locally, then push to `origin` and
+   `dokku`. Close the issue (`gh issue close <n>`, or `Closes #<n>` in the
+   commit message), delete the branch, and `git worktree remove` the folder if
+   there was one.
+4. **Keep the documents true.** When a feature is added, changed or dropped,
+   update `prd.md`, this file's "This project" section and `README.md` in the
+   same commit. They are graded, and a stale one is worse than none.
+
 ## What this is
 
 A Flask application: a Python program that runs on a server, decides what each
@@ -61,6 +98,8 @@ That is the single most common problem in this project. Check it first.
 | `requirements.txt` | The packages this app needs |
 | `Procfile`, `gunicorn.conf.py`, `runtime.txt` | How the class server runs the app. **Do not change these** |
 | `.env.example`, `database/`, `blueprints/examples.py` | Module 4 onward. Not used before then |
+| `prd.md` | What the app is for and what it must do. Module 5 onward. The source for this file's "This project" section and for `README.md` |
+| `.github/ISSUE_TEMPLATE/` | The shapes `gh issue create` offers: feature, bug, task |
 
 **A route and a template are two halves of one page.** `app.py` decides *what*
 the page says; the file in `templates/` decides *how it looks*. Changing the

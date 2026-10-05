@@ -97,4 +97,7 @@ jobs:
           grep -q '^gunicorn==' requirements.txt
           grep -q 'examples_bp = Blueprint' blueprints/examples.py
           grep -q '^python-3.12.5$' runtime.txt
+          test -f prd.md
+          test -f .github/ISSUE_TEMPLATE/feature.md
+          grep -q '^## This project (from prd.md)' CLAUDE.md
           echo "all contract checks passed"

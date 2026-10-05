@@ -1,3 +1,44 @@
+<!--
+  Module 5 onward: this top block is yours. Fill it in from prd.md, and keep it
+  true as the app changes. Everything below the line is the kit's own setup
+  guide — keep the parts that still apply to your app.
+-->
+
+# _TODO: your app's name_
+
+_TODO: one paragraph from your PRD's Project Overview — what this app is, who
+it is for, and why it exists._
+
+**Live site:** _TODO: https://iscs2.gcsu.edu:<your-port>/_
+
+## Features
+
+_TODO: from your PRD's Key Features, one line each._
+
+- _TODO_
+
+## Tech stack
+
+- Python 3.12 / Flask
+- MySQL (`mysql-connector-python`)
+- Bootstrap 5
+- Deployed with Dokku on iscs2.gcsu.edu
+- _TODO: any external API, by name_
+
+## Project documents
+
+| File | What it is for |
+|---|---|
+| [`prd.md`](prd.md) | What this app is and what it must do |
+| [`CLAUDE.md`](CLAUDE.md) | How Claude Code should work on it |
+| GitHub Issues | The work, one issue per feature. `gh issue list` |
+
+## Future improvements
+
+_TODO: what you would add next._
+
+---
+
 # Flask Starter Kit
 
 The starting point for your Flask projects in CBIS 4210 / CBIS 5210. You take
@@ -58,7 +99,9 @@ until Module 4.
 | `static/css/style.css` | Your styles. Almost empty on purpose |
 | `requirements.txt` | The packages your app needs |
 | `Procfile`, `gunicorn.conf.py`, `runtime.txt` | How the class server runs your app. Leave these alone |
-| `CLAUDE.md` | The rules Claude Code follows in this project. Worth reading once |
+| `CLAUDE.md` | The rules Claude Code follows in this project. Its top section is yours to fill in from `prd.md` (Module 5) |
+| `prd.md` | Your Product Requirements Document — what the app is and what it must do. *Module 5 onward* |
+| `.github/ISSUE_TEMPLATE/` | The feature, bug and task shapes `gh issue create` offers. *Module 5 onward* |
 | `.env.example`, `database/`, `blueprints/examples.py` | *Module 4 onward.* Not used yet |
 
 A route and a template are two halves of one page. `app.py` decides *what* the
