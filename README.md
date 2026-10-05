@@ -31,7 +31,8 @@ _TODO: from your PRD's Key Features, one line each._
 |---|---|
 | [`prd.md`](prd.md) | What this app is and what it must do |
 | [`CLAUDE.md`](CLAUDE.md) | How Claude Code should work on it |
-| GitHub Issues | The work, one issue per feature. `gh issue list` |
+| [Issues](../../issues) | The work, one issue per feature |
+| [Pull requests](../../pulls?q=is%3Apr) | How each feature reached `main` (Module 6 onward) |
 
 ## Future improvements
 

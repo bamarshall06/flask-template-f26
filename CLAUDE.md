@@ -40,7 +40,6 @@ sentence what it did and why — that is how they learn to read it. If `gh`
 is not signed in, ask them to run `! gh auth login` themselves; it needs
 their browser.
 
-
 1. **Start from an issue.** `gh issue list` shows what is open. If the
    requested change has no issue, suggest creating one
    (`gh issue create`) before writing code.
