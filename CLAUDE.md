@@ -113,6 +113,7 @@ That is the single most common problem in this project. Check it first.
 | `prd.md` | What the app is for and what it must do. Module 5 onward. The source for this file's "This project" section and for `README.md` |
 | `.github/ISSUE_TEMPLATE/` | The shapes `gh issue create` offers: feature, bug, task |
 | `.github/pull_request_template.md` | What every pull request description must say. Module 6 onward |
+| `.claude/settings.json` | Blocks Claude Code from reading `.env`. Leave it in place |
 
 **A route and a template are two halves of one page.** `app.py` decides *what*
 the page says; the file in `templates/` decides *how it looks*. Changing the
@@ -166,6 +167,35 @@ static/css/       style.css
   without being asked.
 - Never commit `.env`, and never put a password in a file git tracks.
   `.gitignore` already blocks `.env` — leave that line in place.
+
+## Secrets: handle the name, never the value
+
+Everything you read or print goes into the conversation, which is sent to
+the model and saved on the student's computer. So a secret you see has
+leaked, even though nothing went wrong. Handle secrets by **name** only.
+
+- **Never read `.env`** or print its contents. `.claude/settings.json` blocks
+  the Read tool on it; do not work around that with `cat`, `grep`, `head` or
+  similar. The student puts values into `.env` themselves, in the editor.
+- **Never ask the student to paste a key into the chat.** Tell them to put it
+  in `.env` and say the variable's name.
+- **Moving a value to the server:** pass it inside the command and discard
+  stdout, because `config:set` prints back every value it sets. Then confirm
+  by name with `config:keys`:
+
+  ```bash
+  ssh dokku@iscs2.gcsu.edu config:set <app> "OMDB_API_KEY=$(grep -E '^OMDB_API_KEY=' .env | cut -d= -f2-)" > /dev/null
+  ssh dokku@iscs2.gcsu.edu config:set <app> "DATABASE_URL=$(ssh dokku@iscs2.gcsu.edu mysql:url <db>)" > /dev/null
+  ssh dokku@iscs2.gcsu.edu config:keys <app>
+  ```
+
+- **Never run `config:show`**, `mysql:url` on its own, or anything else that
+  prints a value. To check whether something is set, use `config:keys`, and
+  `/healthz` for the database.
+- **Generating a secret** (such as `FLASK_SECRET_KEY`): write it straight into
+  `.env` or `config:set` inside the command, without echoing it.
+- **If a secret does appear** in the conversation or in a commit, say so
+  plainly and tell the student to rotate it. Do not rewrite git history.
 
 ## Deploying
 
