@@ -52,8 +52,8 @@ def about():
 def healthz():
     """Something cheap to visit to prove the app is actually up.
 
-    Also answers "did my DATABASE_URL really get set on the server?", which you
-    cannot check any other way - students are not allowed to run config:show.
+    Also answers "did the running app actually pick up DATABASE_URL?" -
+    config:show lists what is set, but only this proves the app read it.
     """
     return {"status": "ok", "database": app.config["DATABASE_CONFIGURED"]}, 200
 

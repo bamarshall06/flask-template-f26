@@ -196,8 +196,10 @@ Pushing to `origin` does not update the live site, and pushing to `dokku` does
 not save the work to GitHub. Both, every time.
 
 `/healthz` on the live site proves the app is up, and reports whether
-`DATABASE_URL` was actually picked up — useful because students are not allowed
-to run `config:show`. A student may own ten apps and run four at once;
+`DATABASE_URL` was actually picked up. Students may run `config:keys` (names
+only) and `config:show` (prints values, including the database password) on
+their own apps; prefer `config:keys`, and never echo a secret's value back
+to them unprompted. A student may own ten apps and run four at once;
 `ssh dokku@iscs2.gcsu.edu ps:stop <app>` frees a running slot without
 destroying anything.
 
