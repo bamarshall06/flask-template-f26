@@ -32,7 +32,14 @@ do not silently pick one.
 
 ## Workflow
 
-Work is planned in `prd.md` and tracked as GitHub issues. Follow it:
+Work is planned in `prd.md` and tracked as GitHub issues. **The student
+directs; you run the commands.** They are taught the ideas behind issues,
+branches, pull requests and worktrees, not the commands, and they check your
+work on github.com. So when you run a `git` or `gh` command, say in one plain
+sentence what it did and why — that is how they learn to read it. If `gh`
+is not signed in, ask them to run `! gh auth login` themselves; it needs
+their browser.
+
 
 1. **Start from an issue.** `gh issue list` shows what is open. If the
    requested change has no issue, suggest creating one
@@ -42,7 +49,8 @@ Work is planned in `prd.md` and tracked as GitHub issues. Follow it:
    when the student wants two sessions open at once. Never commit feature work
    straight to `main`.
 3. **Merge back to `main`** when it works locally.
-   - Module 5: a local merge (`git checkout main`, `git merge <branch>`).
+   - Module 5: a local merge with a merge commit (`git merge --no-ff
+     <branch>`), so the feature is visible in the history on GitHub.
    - Module 6 onward: a pull request — `git push -u origin <branch>`,
      `gh pr create` (fill in the template, with `Closes #<n>`), then
      `gh pr merge`. Never a local merge.
