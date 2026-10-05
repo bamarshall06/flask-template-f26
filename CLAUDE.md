@@ -41,10 +41,15 @@ Work is planned in `prd.md` and tracked as GitHub issues. Follow it:
    worktree (`git worktree add ../<repo>-<short-name> feature-<short-name>`)
    when the student wants two sessions open at once. Never commit feature work
    straight to `main`.
-3. **Merge back to `main`** when it works locally, then push to `origin` and
-   `dokku`. Close the issue (`gh issue close <n>`, or `Closes #<n>` in the
-   commit message), delete the branch, and `git worktree remove` the folder if
-   there was one.
+3. **Merge back to `main`** when it works locally.
+   - Module 5: a local merge (`git checkout main`, `git merge <branch>`).
+   - Module 6 onward: a pull request — `git push -u origin <branch>`,
+     `gh pr create` (fill in the template, with `Closes #<n>`), then
+     `gh pr merge`. Never a local merge.
+   Then `git checkout main`, `git pull`, and `git push dokku main` so the live
+   site catches up. Delete the branch, and `git worktree remove` the folder if
+   there was one. The issue closes itself from `Closes #<n>`; if it did not,
+   `gh issue close <n>`.
 4. **Keep the documents true.** When a feature is added, changed or dropped,
    update `prd.md`, this file's "This project" section and `README.md` in the
    same commit. They are graded, and a stale one is worse than none.
@@ -100,6 +105,7 @@ That is the single most common problem in this project. Check it first.
 | `.env.example`, `database/`, `blueprints/examples.py` | Module 4 onward. Not used before then |
 | `prd.md` | What the app is for and what it must do. Module 5 onward. The source for this file's "This project" section and for `README.md` |
 | `.github/ISSUE_TEMPLATE/` | The shapes `gh issue create` offers: feature, bug, task |
+| `.github/pull_request_template.md` | What every pull request description must say. Module 6 onward |
 
 **A route and a template are two halves of one page.** `app.py` decides *what*
 the page says; the file in `templates/` decides *how it looks*. Changing the

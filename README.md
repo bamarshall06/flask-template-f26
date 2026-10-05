@@ -102,6 +102,7 @@ until Module 4.
 | `CLAUDE.md` | The rules Claude Code follows in this project. Its top section is yours to fill in from `prd.md` (Module 5) |
 | `prd.md` | Your Product Requirements Document — what the app is and what it must do. *Module 5 onward* |
 | `.github/ISSUE_TEMPLATE/` | The feature, bug and task shapes `gh issue create` offers. *Module 5 onward* |
+| `.github/pull_request_template.md` | What every pull request should say. *Module 6 onward* |
 | `.env.example`, `database/`, `blueprints/examples.py` | *Module 4 onward.* Not used yet |
 
 A route and a template are two halves of one page. `app.py` decides *what* the

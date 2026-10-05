@@ -99,5 +99,6 @@ jobs:
           grep -q '^python-3.12.5$' runtime.txt
           test -f prd.md
           test -f .github/ISSUE_TEMPLATE/feature.md
+          test -f .github/pull_request_template.md
           grep -q '^## This project (from prd.md)' CLAUDE.md
           echo "all contract checks passed"
